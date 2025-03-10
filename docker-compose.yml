@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: docker-s-vs-ps
+    image: postgres:14.17
+    restart: always
+    ports:
+      - ${POSTGRES_PORT}:5432
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+volumes:
+  pg_data:
+
